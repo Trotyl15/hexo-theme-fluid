@@ -1,0 +1,18 @@
+<%
+if (!page.banner_img) {
+  page.banner_img = theme.post.banner_img
+}
+page.banner_img_height = theme.post.banner_img_height
+page.banner_mask_alpha = theme.post.banner_mask_alpha
+%>
+<div class="mt-5 markdown-body">
+  <%- page.content %>
+</div>
+
+<% if(page.comments && theme.post.comments.enable) { %>
+  <!-- Comments -->
+  <article class="comments" id="comments">
+    <% var type = '_partial/comments/' + theme.post.comments.type %>
+    <%- partial(type) %>
+  </article>
+<% } %>
