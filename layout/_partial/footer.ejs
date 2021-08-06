@@ -1,12 +1,13 @@
-<footer class="mt-5">
-  <div class="text-center py-3">
+<footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+    <%- theme.footer.content %>
     <div>
-      <span id="timeDate">正在烧脑计算建站时间...</span>
-      <span id="times"></span>
+      <span id="timeDate">正在烧脑计算建站时间...</span>
+      <span id="times"></span>
       <script>
       var now = new Date();
       function createtime(){
-          var grt= new Date("08/04/2020 00:00:00");//此处修改你的建站时间或者网站上线时间
+          var grt= new Date("08/04/2020 00:00:00");//此处修改你的建站时间或者网站上线时间
           now.setTime(now.getTime()+250);
           days = (now - grt ) / 1000 / 60 / 60 / 24;
           dnum = Math.floor(days);
@@ -46,6 +47,12 @@
     <% } %>
     <script type='text/javascript' id='clustrmaps' src='//cdn.clustrmaps.com/map_v2.js?cl=ffffff&w=300&t=n&d=UcxdrvS_dG9ALI85fIcJskXg_hYsNi47T6wsr7OFVzo&co=7089a3&cmo=ffd099&cmn=ff7269&ct=ffffff'></script>
   </div>
+  <%- partial('_partial/statistics.ejs') %>
+  <%- partial('_partial/beian.ejs') %>
+  <% if(theme.web_analytics.cnzz) { %>
+    <!-- cnzz Analytics Icon -->
+    <span id="cnzz_stat_icon_<%- theme.web_analytics.cnzz %>" style="display: none"></span>
+  <% } %>
 </footer>
 
 <script src="https://cdn.jsdelivr.net/gh/suyin-long/activate-power-mode@1.0/dist/activate-power-mode.js"></script>
